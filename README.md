@@ -32,6 +32,11 @@ decentralized finance on permissioned blockchain".
   `FABRIC_BIN` (default `$HOME/fabric-linux/bin`). `configtx.yaml` is expected
   to sit in the working directory next to the generated `organizations/`
   folder.
+- `experiment_eval.py` - the evaluation script of the fraud detection models
+  reported in the article. It reads the dataset of Farrugia et al. from the
+  repository root, so run
+  `git clone https://github.com/sfarrugia15/Ethereum_Fraud_Detection` there
+  before `python experiment_eval.py`.
 
 ## Reproducing the latency measurements
 
