@@ -1,4 +1,4 @@
-# Hyperledger Fabric component of the KYC prototype
+# Privacy-preserving KYC prototype: supplementary code
 
 Supplementary material for "Privacy-preserving know your customer process for
 decentralized finance on permissioned blockchain".

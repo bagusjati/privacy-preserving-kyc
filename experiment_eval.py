@@ -93,9 +93,10 @@ print(confusion_matrix(yte, pred))
 print(classification_report(yte, pred, target_names=["Normal", "Illicit"],
                             digits=2))
 
-# --- 4) Performance figures of the manuscript (Figs. 4-7) ---
-# Per-fold scores for the metric distributions, the holdout ROC/PR/confusion
-# matrix, the threshold sweep, and the gain-based attribute importances.
+# --- 4) Performance figures of the manuscript (Figs. 3, 6, 7, and 8) ---
+# The holdout ROC/PR/confusion matrix (fig3.png), the per-fold metric
+# distributions (fig6.png), the threshold sweep (fig7.png), and the
+# gain-based attribute importances (fig8.png).
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
