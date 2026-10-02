@@ -1,0 +1,108 @@
+{
+ "createUserProfile": {
+  "n": 100,
+  "mean": 2017.5,
+  "sd": 5.1,
+  "median": 2016.5,
+  "p95": 2021,
+  "min": 2014,
+  "max": 2055.6
+ },
+ "requestValidation": {
+  "n": 100,
+  "mean": 2016,
+  "sd": 2.1,
+  "median": 2015.4,
+  "p95": 2019.3,
+  "min": 2013.2,
+  "max": 2029.8
+ },
+ "submitKycData": {
+  "n": 100,
+  "mean": 2017.7,
+  "sd": 1.8,
+  "median": 2017.4,
+  "p95": 2021.4,
+  "min": 2014.2,
+  "max": 2023
+ },
+ "validateRequestValidation": {
+  "n": 100,
+  "mean": 2017.4,
+  "sd": 4.5,
+  "median": 2017,
+  "p95": 2019.7,
+  "min": 2013.6,
+  "max": 2058.8
+ },
+ "illicitActivities": {
+  "n": 100,
+  "mean": 2017.1,
+  "sd": 1.9,
+  "median": 2016.8,
+  "p95": 2020.3,
+  "min": 2013.9,
+  "max": 2024.6
+ },
+ "getRequestValidation": {
+  "n": 100,
+  "mean": 4,
+  "sd": 0.9,
+  "median": 3.7,
+  "p95": 5.8,
+  "min": 3,
+  "max": 8.7
+ },
+ "getKycData": {
+  "n": 100,
+  "mean": 4.5,
+  "sd": 0.7,
+  "median": 4.4,
+  "p95": 6,
+  "min": 3.7,
+  "max": 7.2
+ },
+ "stateEntriesApprox": 0,
+ "getRequestsByDesignatedBank": {
+  "n": 30,
+  "mean": 8.3,
+  "sd": 2.7,
+  "median": 7.6,
+  "p95": 11.1,
+  "min": 6.6,
+  "max": 21.7
+ },
+ "decompose_endorse": {
+  "n": 40,
+  "mean": 5.3,
+  "sd": 1.2,
+  "median": 4.9,
+  "p95": 8.3,
+  "min": 3.7,
+  "max": 10.4
+ },
+ "decompose_orderCommit": {
+  "n": 40,
+  "mean": 2009.9,
+  "sd": 1,
+  "median": 2009.9,
+  "p95": 2012.1,
+  "min": 2008.2,
+  "max": 2012.6
+ },
+ "concurrent": {
+  "total": 300,
+  "conc": 50,
+  "wall_s": 1.71,
+  "tps": 175.3,
+  "latency": {
+   "n": 300,
+   "mean": 276.9,
+   "sd": 40.9,
+   "median": 284.5,
+   "p95": 336.4,
+   "min": 184.6,
+   "max": 378.8
+  }
+ }
+}

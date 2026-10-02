@@ -1,0 +1,19 @@
+#!/bin/bash
+B=${BENCH_DIR:-$HOME/bench}
+OTLS=$B/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/tls
+export FABRIC_CFG_PATH=$B/orderer/cfg
+export ORDERER_GENERAL_LISTENADDRESS=127.0.0.1 ORDERER_GENERAL_LISTENPORT=7050
+export ORDERER_GENERAL_LOCALMSPID=OrdererMSP
+export ORDERER_GENERAL_LOCALMSPDIR=$B/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp
+export ORDERER_GENERAL_TLS_ENABLED=true
+export ORDERER_GENERAL_TLS_CERTIFICATE=$OTLS/server.crt
+export ORDERER_GENERAL_TLS_PRIVATEKEY=$OTLS/server.key
+export ORDERER_GENERAL_TLS_ROOTCAS=[$OTLS/ca.crt]
+export ORDERER_GENERAL_CLUSTER_CLIENTCERTIFICATE=$OTLS/server.crt
+export ORDERER_GENERAL_CLUSTER_CLIENTPRIVATEKEY=$OTLS/server.key
+export ORDERER_GENERAL_BOOTSTRAPMETHOD=none ORDERER_CHANNELPARTICIPATION_ENABLED=true
+export ORDERER_ADMIN_LISTENADDRESS=127.0.0.1:7053 ORDERER_ADMIN_TLS_ENABLED=false
+export ORDERER_FILELEDGER_LOCATION=$B/orderer/data
+export ORDERER_OPERATIONS_LISTENADDRESS=127.0.0.1:8443
+export ORDERER_CONSENSUS_WALDIR=$B/orderer/data/wal ORDERER_CONSENSUS_SNAPDIR=$B/orderer/data/snap
+exec "${FABRIC_BIN:-$HOME/fabric-linux/bin}/orderer"

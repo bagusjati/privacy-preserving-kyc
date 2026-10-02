@@ -1,0 +1,5 @@
+#!/bin/bash
+# args: BUILD_OUTPUT_DIR RELEASE_OUTPUT_DIR
+mkdir -p "$2/chaincode/server"
+cp "$1/connection.json" "$2/chaincode/server/connection.json"
+exit 0
