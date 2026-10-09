@@ -1,3 +1,6 @@
+# Konfigurasi channel untuk configtxgen, profil FourOrgsApplicationGenesis.
+# Channel configuration for configtxgen, profile FourOrgsApplicationGenesis.
+# Letakkan di folder kerja, sejajar dengan organizations/. / Place it in the working folder, next to organizations/.
 Organizations:
   - &OrdererOrg
     Name: OrdererOrg

@@ -1,3 +1,5 @@
+# Organisasi untuk cryptogen: satu orderer, empat organisasi peer.
+# Organizations for cryptogen: one orderer, four peer organizations.
 OrdererOrgs:
   - Name: Orderer
     Domain: example.com
