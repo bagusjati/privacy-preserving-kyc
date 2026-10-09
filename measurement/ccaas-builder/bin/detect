@@ -1,5 +1,6 @@
 #!/bin/bash
-# args: CHAINCODE_SOURCE_DIR CHAINCODE_METADATA_DIR
+# Terima paket bertipe ccaas saja. / Accept only packages of type ccaas.
+# Argumen / Args: CHAINCODE_SOURCE_DIR CHAINCODE_METADATA_DIR
 TYPE=$(jq -r .type "$2/metadata.json" | tr '[:upper:]' '[:lower:]')
 [ "$TYPE" = "ccaas" ] && exit 0
 exit 1

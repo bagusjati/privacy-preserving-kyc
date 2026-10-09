@@ -1,5 +1,6 @@
 #!/bin/bash
-# args: BUILD_OUTPUT_DIR RELEASE_OUTPUT_DIR
+# Sediakan connection.json untuk peer. / Provide connection.json to the peer.
+# Argumen / Args: BUILD_OUTPUT_DIR RELEASE_OUTPUT_DIR
 mkdir -p "$2/chaincode/server"
 cp "$1/connection.json" "$2/chaincode/server/connection.json"
 exit 0

@@ -1,4 +1,5 @@
 #!/bin/bash
-# args: CHAINCODE_SOURCE_DIR CHAINCODE_METADATA_DIR BUILD_OUTPUT_DIR
+# Salin connection.json ke hasil build. / Copy connection.json to the build output.
+# Argumen / Args: CHAINCODE_SOURCE_DIR CHAINCODE_METADATA_DIR BUILD_OUTPUT_DIR
 cp "$1/connection.json" "$3/connection.json"
 exit 0
