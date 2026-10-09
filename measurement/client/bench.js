@@ -9,10 +9,10 @@ const crypto = require('node:crypto');
 const fs = require('node:fs');
 const path = require('node:path');
 
-// Muat config.env di root repo, environment menang. / Load config.env at the repository root, environment wins.
+// Muat params.conf di root repo, environment menang. / Load params.conf at the repository root, environment wins.
 const ROOT = path.resolve(__dirname, '../..');
 const cfg = {};
-for (const line of fs.readFileSync(path.join(ROOT, 'config.env'), 'utf8').split('\n')) {
+for (const line of fs.readFileSync(path.join(ROOT, 'params.conf'), 'utf8').split('\n')) {
     const m = line.match(/^([A-Z0-9_]+)=(.*)$/);
     if (m) cfg[m[1]] = process.env[m[1]] ?? m[2].trim();
 }
