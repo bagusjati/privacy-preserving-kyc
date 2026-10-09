@@ -4,13 +4,17 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 #
-# Exit on first error
+# Berhenti saat ada galat. / Exit on first error.
 set -ex
 
-# Bring the test network down
+# Muat parameter terpusat. / Load the central parameters.
+source "$(dirname "$0")/load-config.sh"
+cd "$REPO_ROOT"
+
+# Matikan jaringan uji. / Bring the test network down.
 pushd ./test-network
 ./network.sh down
 popd
 
-# clean out any old identites in the wallets
-rm -rf api/wallet/*
+# Hapus identitas lama di wallet. / Clean out old identities in the wallets.
+rm -rf "${API_WALLET_DIR:?}"/*
