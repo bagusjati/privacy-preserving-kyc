@@ -109,8 +109,9 @@ print(classification_report(yte, pred, target_names=["Normal", "Illicit"],
                             digits=2))
 
 # 4) Gambar kinerja. / Performance figures.
-# fig3.png: ROC, PR, confusion matrix holdout. fig6.png: sebaran metrik per lipatan / per-fold metric distributions.
-# fig7.png: sapuan ambang / threshold sweep. fig8.png: kepentingan atribut berbasis gain / gain-based attribute importances.
+# Nama berkas gambar dari params.conf. / Figure file names from params.conf.
+FIG_HOLDOUT, FIG_FOLDS = CFG["FIG_HOLDOUT"], CFG["FIG_FOLDS"]
+FIG_THRESHOLD, FIG_GAIN = CFG["FIG_THRESHOLD"], CFG["FIG_GAIN"]
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
@@ -144,7 +145,7 @@ ax.set_ylabel("Score over fifty folds"); ax.set_ylim(0.93, 1.002)
 ax.legend(handles=[Patch(facecolor=ORANGE, alpha=0.75, label="Random forest"),
                    Patch(facecolor=BLUE, alpha=0.75, label="XGBoost")],
           loc="lower right")
-fig.tight_layout(); fig.savefig(FIG_DIR / "fig6.png", dpi=300); plt.close(fig)
+fig.tight_layout(); fig.savefig(FIG_DIR / FIG_FOLDS, dpi=300); plt.close(fig)
 
 # Kurva ROC, kurva PR, confusion matrix pada holdout. / ROC curve, PR curve, confusion matrix on the holdout.
 fpr, tpr, _ = roc_curve(yte, proba)
@@ -171,7 +172,7 @@ fig.colorbar(im, ax=axC, fraction=0.046, pad=0.04)
 for axx, lab in zip(axes, ["A", "B", "C"]):
     axx.text(-0.12, 1.06, lab, transform=axx.transAxes,
              fontsize=16, fontweight="bold")
-fig.tight_layout(); fig.savefig(FIG_DIR / "fig3.png", dpi=300); plt.close(fig)
+fig.tight_layout(); fig.savefig(FIG_DIR / FIG_HOLDOUT, dpi=300); plt.close(fig)
 
 # Galat terhadap ambang keputusan. / Errors against the decision threshold.
 ts = np.linspace(0.02, 0.98, 97)
@@ -186,7 +187,7 @@ ax.text(0.505, max(fps) * 0.9, "default threshold", rotation=90,
 ax.set_xlabel("Decision threshold")
 ax.set_ylabel("Errors on the holdout split")
 ax.legend(loc="upper center")
-fig.tight_layout(); fig.savefig(FIG_DIR / "fig7.png", dpi=300); plt.close(fig)
+fig.tight_layout(); fig.savefig(FIG_DIR / FIG_THRESHOLD, dpi=300); plt.close(fig)
 
 # Lima belas atribut dengan gain tertinggi. / Fifteen attributes with the highest gain.
 gain = xgb.get_booster().get_score(importance_type="gain")
@@ -203,5 +204,5 @@ fig, ax = plt.subplots(figsize=(7.5, 5))
 ax.barh(range(len(vals)), vals, color=BLUE, alpha=0.85, height=0.65)
 ax.set_yticks(range(len(vals))); ax.set_yticklabels(names, fontsize=9)
 ax.set_xlabel("Average gain"); ax.grid(axis="y", alpha=0)
-fig.tight_layout(); fig.savefig(FIG_DIR / "fig8.png", dpi=300); plt.close(fig)
-print("figures written: fig3.png fig6.png fig7.png fig8.png")
+fig.tight_layout(); fig.savefig(FIG_DIR / FIG_GAIN, dpi=300); plt.close(fig)
+print("figures written:", FIG_HOLDOUT, FIG_FOLDS, FIG_THRESHOLD, FIG_GAIN)
